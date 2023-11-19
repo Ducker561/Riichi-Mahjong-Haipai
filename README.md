@@ -3,7 +3,7 @@ This is a project of using Python Random library to check the haipai average sha
 
 ### Run
 
-1. You can get a single haipai by using the function *one_haipai()* in **main.py**.
+1. You can get a single haipai by using the function *single_haipai()* in **main.py**.
 2. You can simply change the parameter *n* in **main.py** and make a n-round independent haipai test. And will feedback the average shanten of the n-round independent haipai test. 
 
 ### Libraries

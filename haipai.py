@@ -60,13 +60,42 @@ def ri_hai(my_hai):
 
     return res_hai
 
-def hai_pai(d):
-    '''d: 1=东起，2=南起，依次类推'''
+def hai_pai():
+    '''
+    获取配牌
+    返回值为4个元组，分别为东南西北家的各自配牌和各自第一巡自摸的牌
+    '''
     random.shuffle(hai)
-    my_hai = []
+    my_hai_0 = []
+    my_hai_1 = []
+    my_hai_2 = []
+    my_hai_3 = []
     h = 0
-    for h in range(0+4*(d-1), 48+4*(d-1), 16):
-        my_hai += hai[h:h+4]
-    my_hai.append(hai[h+4*(4-d+1)+d-1])
+    d=0 #d: 0=东起，1=南起，2=西起，3=北起
+    for h in range(0+4*d, 48+4*d, 16):
+        my_hai_0 += hai[h:h+4]
+    my_hai_0.append(hai[h+4*(4-d)+d])
 
-    return ri_hai(my_hai), hai[52+4+d-1]
+    d=1
+    for h in range(0+4*d, 48+4*d, 16):
+        my_hai_1 += hai[h:h+4]
+    my_hai_1.append(hai[h+4*(4-d)+d])
+
+    d=2
+    for h in range(0+4*d, 48+4*d, 16):
+        my_hai_2 += hai[h:h+4]
+    my_hai_2.append(hai[h+4*(4-d)+d])
+
+    d=3
+    for h in range(0+4*d, 48+4*d, 16):
+        my_hai_3 += hai[h:h+4]
+    my_hai_3.append(hai[h+4*(4-d)+d])
+
+    return ((ri_hai(my_hai_0), hai[52+4+0]), (ri_hai(my_hai_1), hai[52+4+1]), (ri_hai(my_hai_2), hai[52+4+2]), (ri_hai(my_hai_3), hai[52+4+3]))
+
+def get_yama():
+    '''
+    获取牌山，由于全局变量hai是每次被打乱的，所以要获取牌山的话，需要在使用hai_pai()方法获取配牌后立即使用本方法，否则下一次配牌将打乱全局变量hai，无法获得本次配牌的牌山情况
+    返回值为3个列表的元组，第一个列表为配牌，第二个列表为可摸的牌山，第三个列表为王牌区
+    '''
+    return (hai[:56], hai[56:-14], hai[-14:])
