@@ -8,7 +8,7 @@ This is a project of using Python Random library to check the haipai average sha
 
 ### Libraries
 
-Need **numpy**, but it's only used for calculating the average, you can change it into a normal one in **main.py -> samples()**
+Need **numpy**, but it's only used for calculating the average, you can change it into a normal one in **main.py -> *samples()***
 
 ### Results
 
