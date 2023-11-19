@@ -10,6 +10,11 @@ This is a project of using Python Random library to check the haipai average sha
 
 Need **numpy**, but it's only used for calculating the average, you can change it into a normal one in **main.py -> samples()**
 
+### Results
+
+Doing a 100000-round independent haipai test, the average shanten may be around **3.18**.
+
 ### References
 
 The calculation of shanten is based on this link : https://blog.csdn.net/qq_51273457/article/details/113100157
+
